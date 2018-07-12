@@ -45,6 +45,8 @@ public class NettyNioServer {
                         @Override
                         public void initChannel(SocketChannel socketChannel){
                             //在ChannelPipeline中使用handler来处理业务逻辑
+                            //ChannelPipeline与ChannelHandler的关系类似于Servelet与Filter的关系，
+                            //这类拦截器实际上是职责链模式的一种变形，主要为了方便事件的拦截和用户业务逻辑的定制
                             ChannelPipeline p = socketChannel.pipeline();
                             if (sslContext != null){
                                 p.addLast(sslContext.newHandler(socketChannel.alloc()));
