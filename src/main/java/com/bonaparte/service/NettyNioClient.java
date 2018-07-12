@@ -15,6 +15,7 @@ import javax.net.ssl.SSLException;
 
 /**
  * Created by yangmingquan on 2018/7/12.
+ * Netty Client
  */
 public class NettyNioClient {
 
@@ -23,6 +24,7 @@ public class NettyNioClient {
 
         EventLoopGroup loopGroup = new NioEventLoopGroup();
         try{
+            //客户端使用Bootstrap启动程序，服务端使用ServerBootstrap启动程序
             Bootstrap b = new Bootstrap();
             b.group(loopGroup)
                     .channel(NioSocketChannel.class)
@@ -38,9 +40,13 @@ public class NettyNioClient {
                                     new NettyNioClientHandler());
                         }
                     });
+            //连接到服务器
             ChannelFuture f = b.connect("127.0.0.1", 8007).sync();
+
+            //等待客户端所有的连接channel都关闭才优雅退出
             f.channel().closeFuture().sync();
         }finally {
+            //Netty的优雅退出
             loopGroup.shutdownGracefully();
         }
     }
