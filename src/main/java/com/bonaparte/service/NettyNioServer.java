@@ -19,6 +19,7 @@ import java.security.cert.CertificateException;
 /**
  * Created by yangmingquan on 2018/7/12.
  * Netty Server端
+ * 基于NIO模式的服務器端
  */
 public class NettyNioServer {
     public static void main(String[] args) throws CertificateException, SSLException, InterruptedException {
