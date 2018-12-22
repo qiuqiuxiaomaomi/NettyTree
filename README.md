@@ -45,3 +45,7 @@ Reactor模型：基于事件驱动，适合处理海量I/O事件
 Netty是典型的Reactor模型结构
 
 ![](https://i.imgur.com/OEGTY5Q.png)
+
+Netty是由JBOSS提供的一个java开源框架。Netty提供异步的、事件驱动的网络应用程序框架和工具，
+用以快速开发高性能、高可靠性的网络服务器和客户端程序。也就是说,Netty是一个基于NIO的客户，
+服务器端编程框架，通俗的讲，Netty封装了Socket处理，方便使用了。
